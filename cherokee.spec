@@ -37,6 +37,7 @@ environment, among other features.
 %_libdir/%name/*.so
 %_mandir/man1/cherokee-admin.*
 %_mandir/man1/cherokee-tweak.*
+%_mandir/man1/cherokee-worker.*
 %_mandir/man1/cherokee.*
 %_mandir/man1/spawn-fcgi.*
 %_var/www
