@@ -20,7 +20,6 @@ BuildRequires:	mysql-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	GeoIP-devel
-Suggests:	%name-server = %version
 
 %description
 Cherokee is an extremely flexible and fast web server. It's embedable,
