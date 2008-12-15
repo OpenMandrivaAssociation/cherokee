@@ -39,14 +39,27 @@ environment, among other features.
 %_mandir/man1/cherokee-tweak.*
 %_mandir/man1/cherokee.*
 %_mandir/man1/spawn-fcgi.*
-%_mandir/man1/spawn-fcgi.*
 %_var/www
+
+#----------------------------------------------------------------------
+
+%package -n cget
+Group:          System/Servers
+Summary:        Web page downloader
+
+%description -n cget
+CGet is a small downloader based in the Cherokee client library.
+
+%files -n cget
+%defattr(-, root, root)
+%{_bindir}/cget
+%{_mandir}/man1/cget.*
 
 #----------------------------------------------------------------------
 
 %package -n %libbase
 Group:		System/Servers
-Summary:	extremely fast and flexible web server - libraries
+Summary:	Extremely fast and flexible web server - libraries
 
 %description -n %libbase
 Cherokee is an extremely flexible and fast web server. It's embedable,
@@ -64,7 +77,7 @@ This is the runtime library.
 
 %package -n %libclient
 Group:		System/Servers
-Summary:	extremely fast and flexible web server - libraries
+Summary:	Extremely fast and flexible web server - libraries
 
 %description -n %libclient
 Cherokee is an extremely flexible and fast web server. It's embedable,
@@ -82,7 +95,7 @@ This is the client runtime library.
 
 %package -n %libconfig
 Group:		System/Servers
-Summary:	extremely fast and flexible web server - libraries
+Summary:	Extremely fast and flexible web server - libraries
 
 %description -n %libconfig
 Cherokee is an extremely flexible and fast web server. It's embedable,
@@ -100,7 +113,7 @@ This is the configuration handler's runtime library.
 
 %package -n %libserver
 Group:		System/Servers
-Summary:	extremely fast and flexible web server - libraries
+Summary:	Extremely fast and flexible web server - libraries
 
 %description -n %libserver
 Cherokee is an extremely flexible and fast web server. It's embedable,
@@ -122,7 +135,7 @@ Requires:	%libbase = %version
 Requires:	%libclient = %version
 Requires:	%libconfig = %version
 Requires:	%libserver = %version
-Summary:	extremely fast and flexible web server - development files
+Summary:	Extremely fast and flexible web server - development files
 
 %description devel
 Cherokee is an extremely flexible and fast web server. It's embedable,
