@@ -11,6 +11,8 @@ Release:	%mkrel 1
 License:	GPLv2
 Group:		System/Servers
 Source0: 	http://www.cherokee-project.com/download/0.11/%version/%name-%version.tar.gz
+Source1:	cherokee.init
+Source2:	cherokee.logrotate
 URL:		http://www.cherokee-project.com/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	php-devel
@@ -18,6 +20,7 @@ BuildRequires:	mysql-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	GeoIP-devel
+Suggests:	%name-server = %version
 
 %description
 Cherokee is an extremely flexible and fast web server. It's embedable,
@@ -27,10 +30,15 @@ environment, among other features.
 
 %files
 %defattr(-, root, root)
+%_initrddir/%{name}
 %_sysconfdir/cherokee
+%config(noreplace) %{_sysconfdir}/pam.d/%{name}
+%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %_bindir/cherokee-tweak
 %_bindir/cherokee-panic
 %_bindir/spawn-fcgi
+%dir %_libdir/%name
+%_libdir/%name/*.so
 %_sbindir/*
 %_datadir/%name
 %doc %_datadir/doc/%name
@@ -169,6 +177,10 @@ rm -rf %buildroot
 %makeinstall_std
 
 rm -f %buildroot%_libdir/%name/*.la
+
+%{__install} -D -m 0644 pam.d_cherokee %{buildroot}%{_sysconfdir}/pam.d/%{name}
+%{__install} -D -m 0755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
+%{__install} -D -m 0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 
 %clean
 rm -rf %buildroot
