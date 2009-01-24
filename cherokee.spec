@@ -6,11 +6,11 @@
 
 Summary:	Extremely fast and flexible web server
 Name:     	cherokee
-Version:	0.11.5
+Version:	0.98.0
 Release:	%mkrel 1
 License:	GPLv2
 Group:		System/Servers
-Source0: 	http://www.cherokee-project.com/download/0.11/%version/%name-%version.tar.gz
+Source0: 	http://www.cherokee-project.com/download/0.98/%version/%name-%version.tar.gz
 Source1:	cherokee.init
 Source2:	cherokee.logrotate
 URL:		http://www.cherokee-project.com/
