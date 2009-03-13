@@ -6,11 +6,11 @@
 
 Summary:	Extremely fast and flexible web server
 Name:     	cherokee
-Version:	0.98.1
+Version:	0.99.4
 Release:	%mkrel 1
 License:	GPLv2
 Group:		System/Servers
-Source0: 	http://www.cherokee-project.com/download/0.98/%version/%name-%version.tar.gz
+Source0: 	http://www.cherokee-project.com/download/0.99/%version/%name-%version.tar.gz
 Source1:	cherokee.init
 Source2:	cherokee.logrotate
 URL:		http://www.cherokee-project.com/
@@ -35,7 +35,6 @@ environment, among other features.
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %_bindir/cherokee-tweak
 %_bindir/cherokee-panic
-%_bindir/spawn-fcgi
 %dir %_libdir/%name
 %_libdir/%name/*.so
 %_sbindir/*
@@ -46,7 +45,6 @@ environment, among other features.
 %_mandir/man1/cherokee-tweak.*
 %_mandir/man1/cherokee-worker.*
 %_mandir/man1/cherokee.*
-%_mandir/man1/spawn-fcgi.*
 %_var/www
 
 #----------------------------------------------------------------------
@@ -168,6 +166,7 @@ This package contains the server development files - headers, .so and .a files.
 %setup -q -n %name-%version
 
 %build
+%serverbuild
 %configure2_5x --disable-static
 %make
 
