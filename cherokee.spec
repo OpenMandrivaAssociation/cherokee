@@ -6,8 +6,8 @@
 
 Summary:	Extremely fast and flexible web server
 Name:     	cherokee
-Version:	0.99.4
-Release:	%mkrel 2
+Version:	0.99.11
+Release:	%mkrel 1
 License:	GPLv2
 Group:		System/Servers
 Source0: 	http://www.cherokee-project.com/download/0.99/%version/%name-%version.tar.gz
@@ -15,11 +15,13 @@ Source1:	cherokee.init
 Source2:	cherokee.logrotate
 URL:		http://www.cherokee-project.com/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
-BuildRequires:	php-devel
+BuildRequires:	ffmpeg-devel
+BuildRequires:	php-devel php-cgi
 BuildRequires:	mysql-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	GeoIP-devel
+Requires:	php-cgi
 
 %description
 Cherokee is an extremely flexible and fast web server. It's embedable,
@@ -27,10 +29,12 @@ extensible with plug-ins. It has handler-to-path, virtual servers, gzip
 encoding, modular loggers, CGI support, and can run in a chroot
 environment, among other features.
 
-%files
+%files -f %{name}.lang
 %defattr(-, root, root)
 %_initrddir/%{name}
-%_sysconfdir/cherokee
+%dir %_sysconfdir/cherokee
+%config(noreplace) %_sysconfdir/cherokee/cherokee.conf
+%_sysconfdir/cherokee/cherokee.conf.perf_sample
 %config(noreplace) %{_sysconfdir}/pam.d/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %_bindir/cherokee-tweak
@@ -40,7 +44,6 @@ environment, among other features.
 %_sbindir/*
 %_datadir/%name
 %doc %_datadir/doc/%name
-%_libdir/%name/*.so
 %_mandir/man1/cherokee-admin.*
 %_mandir/man1/cherokee-tweak.*
 %_mandir/man1/cherokee-worker.*
@@ -173,6 +176,8 @@ This package contains the server development files - headers, .so and .a files.
 %install
 rm -rf %buildroot
 %makeinstall_std
+
+%find_lang %name
 
 rm -f %buildroot%_libdir/%name/*.la
 
