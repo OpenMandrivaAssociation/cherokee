@@ -3,14 +3,15 @@
 %define libclient %mklibname %name-client %major
 %define libconfig %mklibname %name-config %major
 %define libserver %mklibname %name-server %major
+%define mainver $(echo %{version} | sed -e "s/\\([0-9]*\\.[0-9]*\\).[0-9]*/\\1/")
 
 Summary:	Extremely fast and flexible web server
 Name:     	cherokee
-Version:	0.99.14
+Version:	0.99.15
 Release:	%mkrel 1
 License:	GPLv2
 Group:		System/Servers
-Source0: 	http://www.cherokee-project.com/download/%version/%name-%version.tar.gz
+Source0: 	ftp://ftp.easynet.be/cherokee/%{mainver}/%{version}/%{name}-%{version}.tar.gz
 Source1:	cherokee.init
 Source2:	cherokee.logrotate
 URL:		http://www.cherokee-project.com/
