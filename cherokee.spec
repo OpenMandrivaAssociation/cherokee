@@ -3,7 +3,7 @@
 %define libclient %mklibname %name-client %major
 %define libconfig %mklibname %name-config %major
 %define libserver %mklibname %name-server %major
-%define mainver $(echo %{version} | sed -e "s/\\([0-9]*\\.[0-9]*\\).[0-9]*/\\1/")
+%define mainver %(echo %{version} | sed -e "s/\\([0-9]*\\.[0-9]*\\).[0-9]*/\\1/")
 
 Summary:	Extremely fast and flexible web server
 Name:     	cherokee
