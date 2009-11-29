@@ -8,7 +8,7 @@
 Summary:	Extremely fast and flexible web server
 Name:     	cherokee
 Version:	0.99.29
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2
 Group:		System/Servers
 Source0: 	ftp://ftp.easynet.be/cherokee/%{mainver}/%{version}/%{name}-%{version}.tar.gz
@@ -17,12 +17,12 @@ Source2:	cherokee.logrotate
 URL:		http://www.cherokee-project.com/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	ffmpeg-devel
-BuildRequires:	php-devel php-cgi
+BuildRequires:	php-devel php-fcgi
 BuildRequires:	mysql-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	GeoIP-devel
-Requires:	php-cgi
+Requires:	php-fcgi
 
 %description
 Cherokee is an extremely flexible and fast web server. It's embedable,
