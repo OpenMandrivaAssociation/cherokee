@@ -17,12 +17,21 @@ Source2:	cherokee.logrotate
 URL:		http://www.cherokee-project.com/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	ffmpeg-devel
-BuildRequires:	php-devel php-fcgi
+BuildRequires:	php-devel
+%if %mdkversion >= 201000
+Buildrequires:	php-cgi
+%else
+BuildRequires:	php-fcgi
+%endif
 BuildRequires:	mysql-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	GeoIP-devel
+%if %mdkversion >= 201000
+Requires:	php-cgi
+%else
 Requires:	php-fcgi
+%endif
 
 %description
 Cherokee is an extremely flexible and fast web server. It's embedable,
