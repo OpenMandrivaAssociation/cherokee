@@ -180,6 +180,9 @@ This package contains the server development files - headers, .so and .a files.
 
 %build
 %serverbuild
+%if %mdkversion < 201000
+export PHPCGI=%{_bindir}/php-fcgi
+%endif
 %configure2_5x --disable-static
 %make
 
