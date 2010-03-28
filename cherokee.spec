@@ -7,8 +7,8 @@
 
 Summary:	Extremely fast and flexible web server
 Name:     	cherokee
-Version:	0.99.43
-Release:	%mkrel 2
+Version:	0.99.44
+Release:	%mkrel 1
 License:	GPLv2
 Group:		System/Servers
 Source0: 	ftp://ftp.easynet.be/cherokee/%{mainver}/%{version}/%{name}-%{version}.tar.gz
