@@ -8,7 +8,7 @@
 Summary:	Extremely fast and flexible web server
 Name:     	cherokee
 Version:	1.0.8
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2
 Group:		System/Servers
 Source0: 	http://www.cherokee-project.com/download/%{mainver}/%{version}/%{name}-%{version}.tar.gz
@@ -32,6 +32,7 @@ Requires:	php-cgi
 %else
 Requires:	php-fcgi
 %endif
+Provides:	webserver
 
 %description
 Cherokee is an extremely flexible and fast web server. It's embedable,
