@@ -1,17 +1,16 @@
 %define major 0
 %define libbase %mklibname %name-base %major
 %define libclient %mklibname %name-client %major
-%define libconfig %mklibname %name-config %major
 %define libserver %mklibname %name-server %major
 %define mainver %(echo %{version} | sed -e "s/\\([0-9]*\\.[0-9]*\\).[0-9]*/\\1/")
 
 Summary:	Extremely fast and flexible web server
-Name:     	cherokee
+Name:		cherokee
 Version:	1.0.9
 Release:	%mkrel 1
 License:	GPLv2
 Group:		System/Servers
-Source0: 	http://www.cherokee-project.com/download/%{mainver}/%{version}/%{name}-%{version}.tar.gz
+Source0:	http://www.cherokee-project.com/download/%{mainver}/%{version}/%{name}-%{version}.tar.gz
 Source1:	cherokee.init
 Source2:	cherokee.logrotate
 URL:		http://www.cherokee-project.com/
@@ -64,8 +63,8 @@ environment, among other features.
 #----------------------------------------------------------------------
 
 %package -n cget
-Group:          System/Servers
-Summary:        Web page downloader
+Group:		System/Servers
+Summary:	Web page downloader
 
 %description -n cget
 CGet is a small downloader based in the Cherokee client library.
@@ -113,24 +112,6 @@ This is the client runtime library.
 
 #----------------------------------------------------------------------
 
-%package -n %libconfig
-Group:		System/Servers
-Summary:	Extremely fast and flexible web server - libraries
-
-%description -n %libconfig
-Cherokee is an extremely flexible and fast web server. It's embedable,
-extensible with plug-ins. It has handler-to-path, virtual servers, gzip
-encoding, modular loggers, CGI support, and can run in a chroot
-environment, among other features.
-
-This is the configuration handler's runtime library.
-
-%files -n %libconfig
-%defattr(-, root, root)
-%{_libdir}/libcherokee-config.so.%{major}*
-
-#----------------------------------------------------------------------
-
 %package -n %libserver
 Group:		System/Servers
 Summary:	Extremely fast and flexible web server - libraries
@@ -153,7 +134,6 @@ This is the server runtime library.
 Group:		System/Servers
 Requires:	%libbase = %version
 Requires:	%libclient = %version
-Requires:	%libconfig = %version
 Requires:	%libserver = %version
 Summary:	Extremely fast and flexible web server - development files
 
