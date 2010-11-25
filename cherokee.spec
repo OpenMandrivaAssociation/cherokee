@@ -51,6 +51,7 @@ environment, among other features.
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %_bindir/cherokee-tweak
 %_bindir/cherokee-panic
+%_bindir/CTK-run
 %dir %_libdir/%name
 %_libdir/%name/*.so
 %_sbindir/*
