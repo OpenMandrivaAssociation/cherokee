@@ -6,7 +6,7 @@
 
 Summary:	Extremely fast and flexible web server
 Name:		cherokee
-Version:	1.0.10
+Version:	1.0.12
 Release:	%mkrel 1
 License:	GPLv2
 Group:		System/Servers
