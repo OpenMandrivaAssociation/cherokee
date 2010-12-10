@@ -6,7 +6,7 @@
 
 Summary:	Extremely fast and flexible web server
 Name:		cherokee
-Version:	1.0.12
+Version:	1.0.13
 Release:	%mkrel 1
 License:	GPLv2
 Group:		System/Servers
@@ -49,8 +49,9 @@ environment, among other features.
 %_sysconfdir/cherokee/cherokee.conf.perf_sample
 %config(noreplace) %{_sysconfdir}/pam.d/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
-%_bindir/cherokee-tweak
+%_bindir/cherokee-admin-launcher
 %_bindir/cherokee-panic
+%_bindir/cherokee-tweak
 %_bindir/CTK-run
 %dir %_libdir/%name
 %_libdir/%name/*.so
@@ -182,9 +183,15 @@ rm -f %buildroot%_libdir/%name/*.la
 %{__install} -D -m 0755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
 %{__install} -D -m 0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 
+%{buildroot}%{_datadir}/%{name}/admin/upgrade_config.py %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
+rm -f %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf.backup
+
 %clean
 rm -rf %buildroot
 
 %check
 # broken in 0.99.39
 #%make test
+
+%post
+[[ -e %{_sysconfdir}/%{name}/%{name}.conf ]] && %{_datadir}/%{name}/admin/upgrade_config.py %{_sysconfdir}/%{name}/%{name}.conf
