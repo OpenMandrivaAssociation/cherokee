@@ -59,6 +59,7 @@ environment, among other features.
 %_datadir/%name
 %doc %_datadir/doc/%name
 %_mandir/man1/cherokee-admin.*
+%_mandir/man1/cherokee-admin-launcher.*
 %_mandir/man1/cherokee-tweak.*
 %_mandir/man1/cherokee-worker.*
 %_mandir/man1/cherokee.*
