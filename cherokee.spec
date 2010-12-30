@@ -6,7 +6,7 @@
 
 Summary:	Extremely fast and flexible web server
 Name:		cherokee
-Version:	1.0.14
+Version:	1.0.15
 Release:	%mkrel 1
 License:	GPLv2
 Group:		System/Servers
@@ -50,6 +50,7 @@ environment, among other features.
 %config(noreplace) %{_sysconfdir}/pam.d/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %_bindir/cherokee-admin-launcher
+%_bindir/cherokee-macos-askpass
 %_bindir/cherokee-panic
 %_bindir/cherokee-tweak
 %_bindir/CTK-run
