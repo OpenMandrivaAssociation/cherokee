@@ -7,7 +7,7 @@
 Summary:	Extremely fast and flexible web server
 Name:		cherokee
 Version:	1.2.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2
 Group:		System/Servers
 Source0:	http://www.cherokee-project.com/download/%{mainver}/%{version}/%{name}-%{version}.tar.gz
@@ -17,20 +17,22 @@ URL:		http://www.cherokee-project.com/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	ffmpeg-devel
 BuildRequires:	php-devel
+%if %mdkversion >= 201010
+BuildRequires:	php-fpm
+Requires:	php-fpm
+%else
 %if %mdkversion >= 201000
 Buildrequires:	php-cgi
+Requires:	php-cgi
 %else
 BuildRequires:	php-fcgi
+Requires:	php-fcgi
+%endif
 %endif
 BuildRequires:	mysql-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	GeoIP-devel
-%if %mdkversion >= 201000
-Requires:	php-cgi
-%else
-Requires:	php-fcgi
-%endif
 Provides:	webserver
 Provides:	%mklibname %name-config %major
 Obsoletes:	%mklibname %name-config 0
