@@ -1,0 +1,4 @@
+sources:
+  "cherokee-1.2.101.tar.gz:"	b27f149c7d7111207ac8c3cd8a4856c05490d136
+  "cherokee.init:"	6420050a8b7a46c6e3e19ad50e9edc20fa11f81c
+  "cherokee.logrotate:"	f515d97ba786b73bffbcb2518d60aba28f1b5d17
