@@ -1,0 +1,12 @@
+Index: cherokee-1.2.101/cherokee/Makefile.am
+===================================================================
+--- cherokee-1.2.101.orig/cherokee/Makefile.am
++++ cherokee-1.2.101/cherokee/Makefile.am
+@@ -1298,6 +1298,7 @@ $(static_handler_proxy_lib) \
+ $(static_handler_dbslayer_lib) \
+ $(static_handler_streaming_lib) \
+ $(static_cryptor_libssl_lib) \
++$(external_pcre_lib) \
+ libcherokee-base.la
+ 
+ 
