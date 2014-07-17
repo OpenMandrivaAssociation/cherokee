@@ -162,7 +162,7 @@ This package contains the server development files - headers, .so and .a files.
 touch ./INSTALL
 
 %build
-autoreconf
+autoreconf -i
 %serverbuild
 %configure2_5x --disable-static
 %make
