@@ -1,13 +1,13 @@
 %define major 0
-%define libbase %mklibname %{name}-base %major
-%define libclient %mklibname %{name}-client %major
-%define libserver %mklibname %{name}-server %major
+%define libbase %mklibname %{name}-base %{major}
+%define libclient %mklibname %{name}-client %{major}
+%define libserver %mklibname %{name}-server %{major}
 %define mainver %(echo %{version} | sed -e "s/\\([0-9]*\\.[0-9]*\\).[0-9]*/\\1/")
 
 Summary:	Extremely fast and flexible web server
 Name:		cherokee
 Version:	1.2.101
-Release:	5
+Release:	7
 License:	GPLv2
 Group:		System/Servers
 Source0:	http://www.cherokee-project.com/download/%{mainver}/%{version}/%{name}-%{version}.tar.gz
@@ -27,7 +27,7 @@ BuildRequires:	pkgconfig(geoip)
 Requires(pre):	rpm-helper
 Requires(post):	rpm-helper
 Provides:	webserver
-Provides:	%mklibname %{name}-config %major
+Provides:	%mklibname %{name}-config %{major}
 Obsoletes:	%mklibname %{name}-config 0
 
 %description
@@ -70,7 +70,6 @@ Summary:	Web page downloader
 CGet is a small downloader based in the Cherokee client library.
 
 %files -n cget
-%defattr(-, root, root)
 %{_bindir}/cget
 %{_mandir}/man1/cget.*
 
@@ -89,7 +88,6 @@ environment, among other features.
 This is the runtime library.
 
 %files -n %libbase
-%defattr(-, root, root)
 %{_libdir}/libcherokee-base.so.%{major}*
 
 #----------------------------------------------------------------------
@@ -107,7 +105,6 @@ environment, among other features.
 This is the client runtime library.
 
 %files -n %libclient
-%defattr(-, root, root)
 %{_libdir}/libcherokee-client.so.%{major}*
 
 #----------------------------------------------------------------------
@@ -125,7 +122,6 @@ environment, among other features.
 This is the server runtime library.
 
 %files -n %libserver
-%defattr(-, root, root)
 %{_libdir}/libcherokee-server.so.%{major}*
 
 #----------------------------------------------------------------------
@@ -146,7 +142,6 @@ environment, among other features.
 This package contains the server development files - headers, .so and .a files.
 
 %files devel
-%defattr(-, root, root)
 %{_bindir}/%{name}-config
 %{_libdir}/*.so
 %{_includedir}/%{name}
@@ -186,9 +181,10 @@ rm -f %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf.backup
 
 %post
 [[ -e %{_sysconfdir}/%{name}/%{name}.conf ]] && %{_datadir}/%{name}/admin/upgrade_config.py %{_sysconfdir}/%{name}/%{name}.conf
-
-%systemd_post
+%systemd_post %{name}.service
 
 %preun
-%systemd_preun
+%systemd_preun %{name}.service
 
+%postun
+%systemd_postun_with_restart %{name}.service
