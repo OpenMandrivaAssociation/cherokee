@@ -15,7 +15,7 @@ Source1:	cherokee.service
 Source2:	cherokee.logrotate
 Patch0:		cherokee-1.2.101-rosa-linkage.patch
 Patch1:		cherokee-1.2.101-ffmpeg0.11.patch
-URL:		http://www.cherokee-project.com/
+URL:		https://www.cherokee-project.com/
 BuildRequires:	ffmpeg-devel
 BuildRequires:	php-devel
 BuildRequires:	php-fpm
