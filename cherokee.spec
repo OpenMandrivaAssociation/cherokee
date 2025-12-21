@@ -16,6 +16,11 @@ Source2:	cherokee.logrotate
 Patch0:		cherokee-1.2.101-rosa-linkage.patch
 Patch1:		cherokee-1.2.101-ffmpeg0.11.patch
 URL:		https://www.cherokee-project.com/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	ffmpeg-devel
 BuildRequires:	php-devel
 BuildRequires:	php-fpm
